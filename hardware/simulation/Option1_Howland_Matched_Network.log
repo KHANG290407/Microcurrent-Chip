@@ -1,0 +1,35 @@
+LTspice 26.0.1 for Windows
+Circuit: C:\Users\TBC\.gemini\antigravity\scratch\microcurrent-chip\hardware\simulation\Option1_Howland_Matched_Network.net
+Start Time: Sun Nov  8 16:39:29 2026
+
+.step r_val=1000
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+
+.step r_val=5000
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step r_val=10000
+Direct Newton iteration succeeded in finding operating point.
+
+.step r_val=25000
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step r_val=50000
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.426 seconds.
+
+Files loaded:
+C:\Users\TBC\.gemini\antigravity\scratch\microcurrent-chip\hardware\simulation\Option1_Howland_Matched_Network.net
+C:\Users\TBC\AppData\Local\LTspice\lib\sub\UniversalOpAmp2.lib
+

@@ -1,0 +1,38 @@
+* Howland Current Pump Netlist for Microcurrent Simulation (LTspice / SPICE)
+* Universal Microcurrent Driver Module (UMDM)
+*
+* Power Supplies: +/- 15V to provide sufficient compliance voltage
+Vp VCC 0 DC 15
+Vn VEE 0 DC -15
+
+* Control Signal Vin: Biphasic Pulse (Frequency = 20Hz, T = 50ms)
+* Pulse from -1V to +1V, Pulse width = 24.9ms, Period = 50ms (Zero Net DC)
+Vin IN 0 PULSE(-1 1 0 10u 10u 24.9m 50m)
+
+* Howland Bridge Resistors (Precision Matched: R1=R2=R3=R4=10k)
+* Formula: I(Load) = -Vin / R_bridge = 1V / 10k = 100uA
+R1 IN N_INV 10k
+R2 N_INV VOUT 10k
+R3 0 NON_INV 10k
+R4 NON_INV VOUT 10k
+
+* Biological Skin Model (Load):
+* R_skin in parallel with C_skin (Stratum corneum) in series with R_deep
+* R_load can be stepped: {R_skin}
+.param R_skin=10k
+Rload NON_INV 0 {R_skin}
+
+* Ideal / Universal Op-Amp Model (Gain = 100k, GBW = 10MHz)
+* Nodes: Non-Inverting Inverting PositiveSupply NegativeSupply Output
+E_OPAMP VOUT 0 NON_INV N_INV 100000
+R_out VOUT 0 100MEG
+
+* Simulation Control:
+* Run transient simulation for 150ms (3 full cycles of 20Hz)
+.tran 0 150m 0 50u
+
+* Sweep skin impedance across biological dry-to-sweaty range:
+* 1k (wet/sweaty), 5k (normal moist), 10k (normal hand), 20k (dry), 40k (very dry cold hand)
+.step param R_skin list 1k 5k 10k 20k 40k
+
+.end
