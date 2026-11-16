@@ -26,8 +26,12 @@ Thư mục [`hardware/simulation/`](./) đã được tạo sẵn 3 file mô ph�
 
 | Tên tệp | Mô tả | Ứng dụng |
 | :--- | :--- | :--- |
-| **`howland_pump_basic.asc`** | File Schematic đồ họa chuẩn của **LTspice** (mở trực tiếp bằng chuột) | Kiểm chứng cơ bản với nguồn sin / DC, quét giá trị tải từ $1\,\text{k}\Omega \to 50\,\text{k}\Omega$ |
-| **`howland_pump_biphasic.cir`** | Netlist SPICE mô phỏng xung vuông 2 pha (Biphasic Pulse $20\,\text{Hz}$, đúng chuẩn y sinh MENS) | Đánh giá độ cân bằng DC và khả năng giữ dòng $100\,\mu\text{A}$ |
+| **`STM32_Howland_Current_Pump.asc`** | **Mạch Bơm Dòng Howland kết hợp trực tiếp tín hiệu DAC/PWM của STM32 ($0 - 3.3\,\text{V}$)** kèm bộ lọc thông thấp $RC$ ($1\,\text{k}\Omega, 100\,\text{nF}$) và áp tham chiếu giữa $V_{\text{REF}} = 1.65\,\text{V}$ | Tạo dòng **Biphasic đối xứng $\pm 200\,\mu\text{A}$** từ chân đơn cực $0 - 3.3\,\text{V}$ của STM32 trên tải da từ $1\,\text{k}\Omega \to 80\,\text{k}\Omega$ |
+| **`STM32_Controlled_High_Side_VCCS.asc`** | **Mạch High-Side VCCS (Op-Amp + P-MOSFET $20\,\text{V}$) kết hợp STM32 ($0 - 3.3\,\text{V}$)** qua tầng dịch mức gương dòng (Active Level Shifter NPN `Q1`) | Giải pháp thực tế không cần cân bằng cầu trở, độc lập với nhiễu nguồn Boost $20\,\text{V}$, tạo dòng chuẩn $200\,\mu\text{A}$ |
+| **`Option1_Howland_Matched_Network.asc`** | Mạch Howland dùng mạng điện trở tích hợp **LT5400** ($10\,\text{k}\Omega$, sai số $0.01\%$) | Kiểm chứng độ chính xác cầu điện trở vi sai |
+| **`Option2_High_Side_VCCS.asc`** | Mạch High-Side VCCS dùng 1 điện trở đo dòng $R_{\text{sense}}$ duy nhất (kèm bộ lọc đầu vào) | Kiểm chứng nguyên lý nguồn dòng cao áp đơn cực |
+| **`howland_pump_basic.asc`** | File Schematic LTspice kiểm chứng cơ bản với nguồn sin | Quét giá trị tải từ $1\,\text{k}\Omega \to 50\,\text{k}\Omega$ |
+| **`howland_pump_biphasic.cir`** | Netlist SPICE mô phỏng xung vuông 2 pha (Biphasic Pulse $20\,\text{Hz}$) | Đánh giá độ cân bằng DC (Zero Net DC) |
 | **`skin_model_simulation.cir`** | Mô phỏng kèm **mô hình tế bào da người (Randles Model)** gồm $R_{\text{sc}} \parallel C_{\text{sc}} + R_{\text{deep}}$ | Đánh giá đáp ứng quá độ khi da bị khô hoặc ra mồ hôi |
 
 ---
