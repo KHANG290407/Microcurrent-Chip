@@ -1,6 +1,6 @@
 LTspice 26.0.1 for Windows
-Circuit: C:\Users\TBC\.gemini\antigravity\scratch\microcurrent-chip\hardware\simulation\Option2_High_Side_VCCS.net
-Start Time: Sun Nov  8 17:33:54 2026
+Circuit: G:\DỰ ÁN MICROCHIP\microcurrent-chip\hardware\simulation\Option2_High_Side_VCCS.net
+Start Time: Mon Nov 16 10:41:17 2026
 
 .step r_val=1000
 solver = Normal
@@ -12,19 +12,10 @@ Direct Newton iteration succeeded in finding operating point.
 
 .step r_val=5000
 Direct Newton iteration succeeded in finding operating point.
-
-.step r_val=10000
-Direct Newton iteration succeeded in finding operating point.
-
-.step r_val=25000
-Direct Newton iteration succeeded in finding operating point.
-
-.step r_val=50000
-Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 0.893 seconds.
+Total elapsed time: 0.406 seconds.
 
 Files loaded:
-C:\Users\TBC\.gemini\antigravity\scratch\microcurrent-chip\hardware\simulation\Option2_High_Side_VCCS.net
+G:\DỰ ÁN MICROCHIP\microcurrent-chip\hardware\simulation\Option2_High_Side_VCCS.net
 C:\Users\TBC\AppData\Local\LTspice\lib\cmp\standard.mos
 C:\Users\TBC\AppData\Local\LTspice\lib\sub\UniversalOpAmp2.lib
 
